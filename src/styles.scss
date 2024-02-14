@@ -1,0 +1,33 @@
+$maincolor: hotpink;
+
+//mixins (and @includes!!!) are a collection of rules that can be applied to certain selectors (kinda like partials) - a sass feature
+@mixin hot-pink-black-letters {
+  color: black;
+  background-color: $maincolor;
+  border: 1px solid black;
+}
+
+h1 {
+  @include hot-pink-black-letters;
+}
+
+//nesting - also a sass feature - target any h2s inside a div
+div {
+  h2 {
+    background-color: aquamarine;
+  }
+}
+
+//using & to target individual elements within another set
+div {
+  input {
+    font-size: 20px;
+    background-color: aqua;
+    &[type="submit"] {
+      background-color: hotpink;
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
+}
